@@ -1,0 +1,35 @@
+[project]
+name = "order-agent"
+version = "1.0.0"
+description = "AI Order Management Agent: FastAPI + FastMCP + PostgreSQL + LLM tool calling"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "pydantic[email]>=2.8",
+    "pydantic-settings>=2.4",
+    "sqlalchemy[asyncio]>=2.0.30",
+    "asyncpg>=0.29",
+    "aiosqlite>=0.20",
+    "alembic>=1.13",
+    "httpx>=0.27",
+    "fastmcp>=2.12",
+    "pyjwt>=2.8",
+    "python-multipart>=0.0.9",
+    "prometheus-client>=0.20",
+    "opentelemetry-api>=1.25",
+    "opentelemetry-sdk>=1.25",
+]
+
+[dependency-groups]
+dev = ["pytest>=8", "pytest-asyncio>=0.23", "respx>=0.21", "asgi-lifespan>=2.1"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+pythonpath = ["."]
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.setuptools.packages.find]
+include = ["app*", "mock_services*", "external_mcp*"]

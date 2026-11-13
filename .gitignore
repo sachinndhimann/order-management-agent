@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[oc]
+build/
+dist/
+*.egg-info
+.pytest_cache/
+
+# Environments & SECRETS (v0 had .env un-ignored: fixed)
+.venv
+.env
+secrets/
+*.db
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
